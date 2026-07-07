@@ -110,7 +110,11 @@ RViz2에서 TurtleBot4의 현재 위치를 확인하고, Nav2 Goal 기능을 이
 
 수집한 waypoint를 기반으로 TurtleBot4가 지정된 순찰 경로를 반복 주행하도록 Python 기반 ROS2 순찰 코드를 작성했습니다.
 
-로봇은 현재 위치에서 가장 가까운 waypoint를 선택한 뒤 순찰 루프에 진입하도록 구성했습니다.
+로봇은 /amcl_pose 토픽으로 현재 위치를 확인한 뒤, 현재 위치에서 가장 가까운 waypoint를 선택하고 순찰 루프에 진입하도록 구성했습니다.
+
+순찰 waypoint 좌표는 가독성을 위해 config/waypoints.yaml에 별도로 정리했습니다.
+
+현재 Python 실행 코드에는 실험 당시 사용한 waypoint 좌표가 직접 포함되어 있습니다.
 
 순찰 경로는 다음과 같이 구성했습니다.
 
