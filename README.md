@@ -65,10 +65,11 @@ greenguard-amr-navigation/
 ├── docs/
 │   └── my_contribution.md
 └── config/
-    └── waypoints.yaml
+    └── waypoints.yaml```
 
 Note
 
 This was a team project.
 
 My contribution was focused on SLAM mapping, AMR navigation, waypoint patrol, and Nav2-based patrol control.
+
