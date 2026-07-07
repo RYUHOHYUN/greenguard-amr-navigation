@@ -64,7 +64,7 @@ CLICKED_POINT_TOPIC = "/clicked_point"
 NORMAL_MAX_VEL_X = 0.30
 NORMAL_MAX_VEL_THETA = 1.00
 
-# Slower patrol speed for better camera-based detection during specific patrol sections
+# Slower patrol speed for better camera-based detection during the patrol loop
 PATROL_MAX_VEL_X = 0.15
 PATROL_MAX_VEL_THETA = 1.00
 
