@@ -1,0 +1,41 @@
+# GreenGuard AMR waypoint configuration
+# Coordinate frame: map
+# Robot namespace used in the demo: /robot3
+
+waypoints:
+  point1:
+    position: [-2.8649, -0.1068]
+    direction: SOUTH
+
+  point2:
+    position: [-2.5000, 1.0500]
+    direction: WEST
+
+  point3:
+    position: [-4.6670, 1.2750]
+    direction: WEST
+
+  point4:
+    position: [-2.5570, 4.0940]
+    direction: EAST
+
+  point5:
+    position: [-4.7400, 4.4030]
+    direction: NORTH
+
+  point24_mid:
+    position: [-2.4340, 3.0280]
+    direction: SOUTH
+
+  point35_mid:
+    position: [-4.7000, 2.8300]
+    direction: NORTH
+
+patrol_loop:
+  - point2
+  - point3
+  - point35_mid
+  - point24_mid
+  - point35_mid
+  - point5
+  - point4
