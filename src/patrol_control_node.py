@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 GreenGuard AMR Navigation-Only Patrol Control Node
 
@@ -21,8 +23,6 @@ Removed from the original integrated demo code:
 Author: Hohyun Ryu
 Project: GreenGuard AMR Navigation
 """
-
-#!/usr/bin/env python3
 
 import math
 import threading
