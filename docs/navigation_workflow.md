@@ -1,31 +1,43 @@
-# Navigation Workflow
+## Navigation Workflow
 
-## 1. SLAM Map Generation
+### 1. SLAM Map Generation
 
-- TurtleBot4 and RPLIDAR were used to create an indoor map of the test environment.
-- RViz2 was used to check the map generation status.
-- The generated map was later used for AMCL localization and Nav2 navigation.
+TurtleBot4 and its LiDAR sensor were used to create an indoor map of the test environment.
 
-## 2. Localization
+RViz2 was used to check the map generation status in real time.
 
-- AMCL was executed on the generated map.
-- Robot pose was monitored using AMCL pose.
-- RViz2 was used to check pose alignment on the map.
+The generated map was later used for AMCL localization and Nav2-based navigation.
 
-## 3. Waypoint Collection
+### 2. Localization
 
-- RViz2 clicked point was used to collect candidate waypoint coordinates.
-- Nav2 Goal and teleop command were used to check whether each waypoint was actually reachable.
+AMCL localization was launched using the generated map.
 
-## 4. Patrol Control
+The robot pose was monitored using the `/amcl_pose` topic.
 
-- The robot first checks the current AMCL pose.
-- The nearest waypoint is selected from the current robot position.
-- The robot moves to the nearest waypoint before entering the patrol loop.
-- The robot repeatedly follows the predefined waypoint sequence.
+RViz2 was used to check whether the estimated robot pose was properly aligned with the map.
 
-## 5. Speed Tuning
+### 3. Waypoint Collection
 
-- Normal navigation speed was set to 0.30 m/s.
-- Patrol navigation speed was reduced to 0.15 m/s for more stable camera-based detection during patrol.
+The RViz2 `/clicked_point` topic was used to collect candidate waypoint coordinates.
 
+Nav2 Goal and teleop commands were used to verify whether each waypoint was actually reachable by the robot.
+
+Only waypoints that were reachable in the real test environment were included in the patrol route.
+
+### 4. Patrol Control
+
+The robot first checks its current pose using `/amcl_pose`.
+
+The nearest waypoint is selected based on the current robot position.
+
+The robot moves to the nearest waypoint before entering the patrol loop.
+
+After entering the patrol loop, the robot repeatedly follows the predefined waypoint sequence.
+
+### 5. Speed Tuning
+
+Normal navigation speed was set to 0.30 m/s.
+
+Patrol navigation speed was reduced to 0.15 m/s for more stable camera-based detection during patrol.
+
+Nav2 controller speed parameters were adjusted to apply a slower speed profile during the patrol section.
