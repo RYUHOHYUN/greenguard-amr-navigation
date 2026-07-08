@@ -210,7 +210,6 @@ This distinction is important because the goal of this repository is to show my 
 - docs/troubleshooting.md
 - media/demo_preview.gif
 - media/slam_map_result.png
-- media/slam_parameter_tuning.png
 
 ## Related Documents
 
