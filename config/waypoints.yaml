@@ -1,0 +1,90 @@
+# GreenGuard AMR waypoint configuration
+# This file documents the waypoint coordinates used for the TurtleBot4 patrol demo.
+# The current Python demo script also includes the same waypoint values directly for simple execution.
+
+robot:
+  platform: TurtleBot4
+  namespace: /robot3
+
+map:
+  frame: map
+  description: SLAM-generated indoor map for GreenGuard AMR patrol
+
+waypoints:
+  point1:
+    position:
+      x: -2.8649
+      y: -0.1068
+    direction: SOUTH
+    description: Start or docking-side waypoint
+
+  point2:
+    position:
+      x: -2.5000
+      y: 1.0500
+    direction: WEST
+    description: Patrol waypoint 2
+
+  point3:
+    position:
+      x: -4.6670
+      y: 1.2750
+    direction: WEST
+    description: Patrol waypoint 3
+
+  point4:
+    position:
+      x: -2.5570
+      y: 4.0940
+    direction: EAST
+    description: Patrol waypoint 4
+
+  point5:
+    position:
+      x: -4.7400
+      y: 4.4030
+    direction: NORTH
+    description: Patrol waypoint 5
+
+  point24_mid:
+    position:
+      x: -2.4340
+      y: 3.0280
+    direction: SOUTH
+    description: Intermediate waypoint between point2 and point4
+
+  point35_mid:
+    position:
+      x: -4.7000
+      y: 2.8300
+    direction: NORTH
+    description: Intermediate waypoint between point3 and point5
+
+patrol_loop:
+  - point2
+  - point3
+  - point35_mid
+  - point24_mid
+  - point35_mid
+  - point5
+  - point4
+
+speed_profile:
+  normal:
+    max_vel_x: 0.30
+    max_vel_theta: 1.00
+
+  patrol:
+    max_vel_x: 0.15
+    max_vel_theta: 1.00
+
+nav2_parameters_adjusted_in_code:
+  - FollowPath.max_vel_x
+  - FollowPath.max_speed_xy
+  - FollowPath.max_vel_theta
+
+data_sources_used_for_waypoint_collection:
+  - /amcl_pose
+  - /clicked_point
+  - RViz2 Nav2 Goal
+  - teleop command
