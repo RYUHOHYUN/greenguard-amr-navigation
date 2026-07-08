@@ -79,6 +79,8 @@ GreenGuard의 전체 시스템은 다음 역할로 나뉘었습니다.
 
 초기 map generation 과정에서는 false loop closure로 인해 map distortion 문제가 발생했습니다. 이를 완화하기 위해 SLAM parameter를 조정했습니다.
 
+![SLAM parameter tuning](media/slam_parameter_tuning.png)
+
 주요 조정 방향은 다음과 같습니다.
 
 - scan node가 너무 자주 생성되지 않도록 minimum travel distance를 증가시켰습니다.
