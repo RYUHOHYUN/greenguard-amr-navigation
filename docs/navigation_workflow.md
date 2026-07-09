@@ -2,7 +2,7 @@
 
 ### 1. SLAM Map Generation
 
-TurtleBot4 and its LiDAR sensor were used to create an indoor map of the test environment.
+TurtleBot4 and its RPLIDAR sensor were used to create an indoor map of the test environment.
 
 RViz2 was used to check the map generation status in real time.
 
