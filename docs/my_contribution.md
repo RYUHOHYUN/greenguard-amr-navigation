@@ -35,7 +35,7 @@ My work provided the navigation foundation used by the team-level scenarios, whi
 The following components were part of the full GreenGuard team system, but they were not my main implementation responsibility:
 
 * YOLO detection model
-* robot-mounted camera-based tomato inspection logic
+* laptop camera-based tomato inspection logic using a camera connected on top of the TurtleBot4
 * fixed webcam-based detection trigger
 * Mission Manager logic for event handling
 * detection-event-based tracking behavior
@@ -68,4 +68,4 @@ My implementation scope can be summarized as follows:
 
 My main contribution was focused on the AMR Navigation part of the GreenGuard system.
 
-This document is intended to clarify my individual contribution without overstating my role in the team-level object detection, web monitoring, database, event handling, or tracking modules.
+This document is intended to clarify my individual contribution without overstating my role in the team-level object detection, web monitoring, database, event handling, tomato inspection, or tracking modules.
