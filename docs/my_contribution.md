@@ -35,7 +35,7 @@ My work provided the navigation foundation used by the team-level scenarios, whi
 The following components were part of the full GreenGuard team system, but they were not my main implementation responsibility:
 
 * YOLO detection model
-* laptop camera-based tomato inspection logic using a camera connected on top of the TurtleBot4
+* tomato inspection using only the built-in webcam of a laptop mounted on top of the TurtleBot4
 * fixed webcam-based detection trigger
 * Mission Manager logic for event handling
 * detection-event-based tracking behavior
