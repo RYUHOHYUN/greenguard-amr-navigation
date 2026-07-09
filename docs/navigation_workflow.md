@@ -41,3 +41,12 @@ Normal navigation speed was set to 0.30 m/s.
 Patrol navigation speed was reduced to 0.15 m/s for more stable camera-based detection during patrol.
 
 Nav2 controller speed parameters were adjusted to apply a slower speed profile during the patrol section.
+
+## ROS 2 Interfaces Used
+
+The navigation workflow used the following ROS 2 interfaces.
+
+* AMCL pose feedback for map-based robot pose estimation
+* RViz2 clicked point input for waypoint candidate logging
+* Nav2 goal execution for waypoint movement
+* Nav2 controller parameter adjustment for patrol speed tuning
