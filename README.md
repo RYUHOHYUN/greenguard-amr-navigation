@@ -15,6 +15,9 @@ This repository documents my AMR navigation contribution in the GreenGuard team 
 * Robot platform: TurtleBot4
 * Main stack: ROS 2 Humble, Nav2, SLAM, AMCL, RViz2, RPLIDAR, Python
 * Main contribution: SLAM map generation, AMCL localization setup, waypoint collection, waypoint patrol control, and Nav2 speed tuning
+* Team size: 7 students
+* Project nature: Bootcamp team project focused on system implementation and integration
+* Repository scope: My AMR navigation contribution only, not the full GreenGuard system
 
 ## Project Overview
 
