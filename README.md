@@ -20,7 +20,7 @@ This repository documents my AMR navigation contribution in the GreenGuard team 
 
 GreenGuard는 스마트팜 환경에서 AMR이 자율주행으로 순찰하며 작물 상태와 이상 상황을 확인하는 스마트팜 AMR 순찰 시스템입니다.
 
-전체 시스템은 AMR 자율주행, TurtleBot4 위에 연결된 노트북 카메라 기반 토마토 검사, 고정 웹캠 기반 특정 구역 객체 감지, YOLO 기반 객체 탐지, Mission Manager, SQLite3 DB, Flask Web UI로 구성되었습니다.
+전체 시스템은 AMR 자율주행, TurtleBot4 위에 장착한 노트북의 내장 웹캠을 이용한 토마토 검사, 고정 웹캠 기반 특정 구역 객체 감지, YOLO 기반 객체 탐지, Mission Manager, SQLite3 DB, Flask Web UI로 구성되었습니다.
 
 이 저장소는 팀 전체 시스템 중 제가 담당한 AMR Navigation 부분만 정리합니다.
 
@@ -52,7 +52,7 @@ YOLO detection, Web UI, DB monitoring, object-triggered tracking behavior는 팀
 GreenGuard의 전체 시스템은 다음 역할로 나뉘었습니다.
 
 * TurtleBot4 AMR: Nav2 기반 자율주행, 목표 위치 이동, waypoint 순찰 수행
-* Robot-mounted Laptop Camera: TurtleBot4 위에 연결된 노트북 카메라로 토마토 검사에 활용
+* Robot-mounted Laptop: A laptop was mounted on top of the TurtleBot4, and only the laptop's built-in webcam was used for tomato inspection.
 * Fixed Webcam: 특정 구역에 객체가 감지되었는지 확인하고, AMR 출동 이벤트를 발생시키는 트리거 역할
 * YOLO Detection: 토마토 및 특정 객체 탐지에 활용
 * Mission Manager: 감지 이벤트 판단 및 AMR 출동, 추적, 복귀 등 후속 동작 결정
