@@ -74,13 +74,17 @@ GreenGuard의 전체 시스템은 다음 역할로 나뉘었습니다.
 7. 순찰 구간에서는 TurtleBot4가 지정된 waypoint sequence를 반복 주행하도록 구현했습니다.
 8. 순찰 구간에서는 팀 통합 시스템의 카메라 기반 객체 탐지 안정성을 고려해 Nav2 controller speed parameter를 낮췄습니다.
 
-## SLAM Map Result
+## SLAM Map Generation and Troubleshooting
 
-아래 이미지는 TurtleBot4와 RPLIDAR를 이용해 생성한 실내 테스트 환경 map입니다.
+TurtleBot4와 RPLIDAR를 이용해 실내 테스트 환경의 SLAM map을 생성했습니다.
 
-![SLAM map result](media/slam_map_result.png)
+초기 map generation 과정에서는 false loop closure로 인해 실제 테스트 환경과 다르게 map distortion이 발생하는 문제가 있었습니다.
 
-초기 map generation 과정에서는 false loop closure로 인해 map distortion 문제가 발생했습니다. 이를 완화하기 위해 SLAM parameter를 조정했습니다.
+아래 이미지는 최종 map result가 아니라, false loop closure가 발생해 map이 왜곡된 초기 SLAM 결과입니다.
+
+![False loop closure map distortion](media/false_loop_closure_map.png)
+
+이 문제를 완화하기 위해 SLAM parameter를 조정했습니다.
 
 주요 조정 방향은 다음과 같습니다.
 
@@ -89,6 +93,10 @@ GreenGuard의 전체 시스템은 다음 역할로 나뉘었습니다.
 * 너무 먼 loop closure 후보를 제거하기 위해 loop search maximum distance를 감소시켰습니다.
 * loop closure 인정 기준을 강화하기 위해 minimum chain size와 matching response threshold를 높였습니다.
 * 불확실한 coarse matching 결과를 줄이기 위해 variance 기준을 조정했습니다.
+
+파라미터 조정 후에는 waypoint patrol에 사용할 수 있는 map을 생성하고, 해당 map 위에서 AMCL localization과 Nav2 goal 이동을 확인했습니다.
+
+![Final SLAM map result](media/final_slam_map_result.png)
 
 자세한 troubleshooting 내용은 docs/troubleshooting.md에 정리했습니다.
 
@@ -218,7 +226,8 @@ In the full GreenGuard team system, object detection, tracking behavior, Web UI,
 * docs/navigation_workflow.md
 * docs/troubleshooting.md
 * media/demo_preview.gif
-* media/slam_map_result.png
+* media/false_loop_closure_map.png
+* media/final_slam_map_result.png
 
 ## Related Documents
 
