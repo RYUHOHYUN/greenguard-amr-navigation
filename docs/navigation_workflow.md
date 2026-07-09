@@ -12,7 +12,7 @@ The generated map was later used for AMCL localization and Nav2-based navigation
 
 AMCL localization was launched using the generated map.
 
-The robot pose was monitored using the `/amcl_pose` topic.
+The robot pose was monitored using the AMCL pose topic, `/robot3/amcl_pose`, in the integrated demo setup.
 
 RViz2 was used to check whether the estimated robot pose was properly aligned with the map.
 
@@ -26,7 +26,7 @@ Only waypoints that were reachable in the real test environment were included in
 
 ### 4. Patrol Control
 
-The robot first checks its current pose using `/amcl_pose`.
+The robot first checks its current pose using the AMCL pose topic, `/robot3/amcl_pose`.
 
 The nearest waypoint is selected based on the current robot position.
 
@@ -36,17 +36,20 @@ After entering the patrol loop, the robot repeatedly follows the predefined wayp
 
 ### 5. Speed Tuning
 
-Normal navigation speed was set to 0.30 m/s.
+Normal navigation linear speed was set to 0.30 m/s.
 
-Patrol navigation speed was reduced to 0.15 m/s for more stable camera-based detection during patrol.
+Patrol navigation linear speed was reduced to 0.15 m/s for more stable camera-based detection during patrol.
 
-Nav2 controller speed parameters were adjusted to apply a slower speed profile during the patrol section.
+The angular velocity limit was kept at 1.00 rad/s.
+
+Nav2 controller speed-related parameters were adjusted to apply a slower linear speed profile during the patrol section.
 
 ## ROS 2 Interfaces Used
 
 The navigation workflow used the following ROS 2 interfaces.
 
-* AMCL pose feedback for map-based robot pose estimation
-* RViz2 clicked point input for waypoint candidate logging
-* Nav2 goal execution for waypoint movement
-* Nav2 controller parameter adjustment for patrol speed tuning
+* `/robot3/amcl_pose`: subscribed to AMCL pose feedback for map-based robot pose estimation in the integrated demo setup
+* `/clicked_point`: subscribed to RViz2 Publish Point input for waypoint candidate logging
+* Nav2 goal execution through TurtleBot4Navigator for waypoint movement
+* `/robot3/controller_server/set_parameters`: used to adjust Nav2 controller speed parameters during patrol
+* `/robot3/cmd_vel`: used to publish zero velocity commands for safe stop
